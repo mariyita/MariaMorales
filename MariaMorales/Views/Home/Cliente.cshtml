@@ -2,54 +2,46 @@
 <div class="row">
 
     <div class=col-md-6>
-         <form>
-        <div class="form-group">
-            <label class=col-form-label>Nombre</label>
-            <input class=form-control type="text"/>
-        </div>
+        <form asp-action="CrearCliente" method="post">
 
-        <div  class="form-group">
-         <label>Apellido</label>
-        <input class=form-control type="text"/>
-        </div>
-    </form>
+
+            <div class="form-group">
+                <label class=col-form-label>Nombre</label>
+                <input class=form-control type="text" name="Nombre" />
+            </div>
+
+            <div class="form-group">
+                <label>Apellido</label>
+                <input class=form-control type="text" name="Apellido" />
+            </div>
+            <div class="form-group">
+                <label class=col-form-label>Telefono</label>
+                <input class=form-control type="text" />
+            </div>
+
+            <div class="form-group">
+                <label>Direccion</label>
+                <input class=form-control type="text" />
+            </div>
+            <div class="form-group">
+                <label>Cedula</label>
+                <input class=form-control type="text" />
+            </div>
+            <div class="form-group">
+                <label class=col-form-label>Genero</label>
+                <input type="checkbox" id="femenino" name="Genero" value="femenino">
+                <label for="femenino"> Femenino</label><br>
+                <input type="checkbox" id="masculino" name="Genero" value="masculino">
+                <label for="masculino"> Masculino</label><br>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+
+        </form>
     </div>
 
-    <div class=col-md-6>
 
-      <form>
-        <div class="form-group">
-            <label class=col-form-label>Telefono</label>
-            <input class=form-control type="text"/>
-        </div>
 
-        <div  class="form-group">
-         <label>Direccion</label>
-        <input class=form-control type="text"/>
-        </div>
-    </form>
-    </div>
-
-    <div class=col-md-6>
-
-      <form>
-
-        <div  class="form-group">
-         <label>Cedula</label>
-        <input class=form-control type="text"/>
-        </div>
-    </form>
-    </div>
-
-    <div class=col-md-6>
-    <form>
-   <div  class="form-group">
-        <label class=col-form-label>Genero</label>
-  <input type="checkbox" id="femenino" name="femenino" value="femenino">
-  <label for="femenino"> Femenino</label><br>
-  <input type="checkbox" id="masculino" name="masculino" value="masculino">
-  <label for="masculino"> Masculino</label><br>
-   </div>
-</form>
- </div>
-    </div>
+</div>

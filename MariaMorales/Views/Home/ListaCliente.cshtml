@@ -1,0 +1,22 @@
+﻿
+@model List<MariaMorales.Models.Cliente>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Clientes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(var cliente in Model)
+                {
+                    <tr>
+                    <td>@cliente.Nombre</td>
+                    </tr>
+                }
+              }
+
+                </tbody>
+    </table>
+</div>

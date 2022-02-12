@@ -9,6 +9,7 @@ namespace MariaMorales.Models
        [Key]
     public int ClienteId { get; set; }
 
+
         [StringLength(100)]
         [Required(ErrorMessage ="El campo nombre es requerido")]
         public string Nombre { get; set; }

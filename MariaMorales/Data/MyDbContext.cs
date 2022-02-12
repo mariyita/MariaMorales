@@ -10,5 +10,7 @@ namespace MariaMorales.Data
 
         }
         public DbSet <Cliente> Cliente { get; set; }
+        public DbSet<Pago> Pago { get; set; }
+        public DbSet<Prestamo> Prestamo { get; set; }
     }
 }

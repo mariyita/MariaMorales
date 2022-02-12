@@ -1,5 +1,7 @@
-﻿using MariaMorales.Models;
+﻿using MariaMorales.Data;
+using MariaMorales.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,15 +9,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace MariaMorales.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly MyDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MyDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
         //this is a test
         public IActionResult Index()
@@ -59,6 +64,23 @@ namespace MariaMorales.Controllers
         public IActionResult Cliente()
         {
             return View();
+        }
+
+        public IActionResult CrearCliente(Cliente cliente)
+        {
+            cliente.FechaCreacion = DateTime.Now;
+            cliente.Nombre = "probando";
+            _context.Cliente.Add(cliente);
+            _context.SaveChanges();
+            //  return View();
+            return RedirectToAction("cliente");
+            
+        }
+        public IActionResult ListaCliente()
+        {
+            List<Cliente> cliente = _context.Cliente.ToList();
+            // return View(cliente);
+            return RedirectToAction("ListaCliente");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
