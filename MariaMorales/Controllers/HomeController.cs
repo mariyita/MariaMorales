@@ -17,7 +17,7 @@ namespace MariaMorales.Controllers
         {
             _logger = logger;
         }
-
+        //this is a test
         public IActionResult Index()
         {
             //simular los datos como que estoy usando base de datos
