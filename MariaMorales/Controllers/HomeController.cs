@@ -103,6 +103,25 @@ namespace MariaMorales.Controllers
             
         }
 
+        public IActionResult EliminarCategoria(int id)
+        { 
+            List<Prestamo> prestamos = _context.Prestamo.Where(a => a.ClienteId == id).ToList();
+            //elimina todos los prestamos asociados al cliente
+            _context.RemoveRange(prestamos);
+
+            //con entity framework eliminar el valor
+            Cliente cliente = _context.Cliente.Where(a => a.ClienteId == id).FirstOrDefault();
+             if(cliente != null)
+            _context.Remove(cliente);
+            
+
+            _context.SaveChanges();
+            List<Cliente> clientes = _context.Cliente.ToList();
+            return View("ListaCliente", clientes);
+            
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

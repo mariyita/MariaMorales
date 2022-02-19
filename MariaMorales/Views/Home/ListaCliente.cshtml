@@ -21,10 +21,10 @@
                     <td>@cliente.Direccion</td>
                      <td>@cliente.Cedula</td>
                     <td>
-                      <a class="btn btn-info" href="@Url.Action("EditarCliente",new {id = cliente.ClienteId, MiParametro ="probando"})">Editar</a>
+                      <a class="btn btn-info" href="@Url.Action("EditarCliente",new {id = cliente.ClienteId})">Editar</a>
                   
                     
-                    <a class="btn btn-danger" asp-action="EliminarCliente">Eliminar</a>
+                    <a class="btn btn-danger" href="@Url.Action("EliminarCategoria",new {id = cliente.ClienteId})">Eliminar</a>
                     </td>
                     </tr>
                 }
