@@ -1,11 +1,14 @@
-﻿
+﻿@using System.Security.Policy
+
 @model List<MariaMorales.Models.Cliente>
 <div>
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Clientes</th>
+                 <th>Acciones</th>
             </tr>
+          
         </thead>
         <tbody>
             @{
@@ -16,10 +19,21 @@
                     <td>@cliente.Apellido</td>
                     <td>@cliente.Telefono</td>
                     <td>@cliente.Direccion</td>
+                     <td>@cliente.Cedula</td>
+                    <td>
+                      <a class="btn btn-info" href="@Url.Action("EditarCliente",new {id = cliente.ClienteId, MiParametro ="probando"})">Editar</a>
+                  
+                    
+                    <a class="btn btn-danger" asp-action="EliminarCliente">Eliminar</a>
+                    </td>
                     </tr>
                 }
               }
 
           </tbody>
     </table>
+</div>
+
+<div>
+    <a class="btn alert-success" asp-action="Cliente">agregar nueva</a>
 </div>

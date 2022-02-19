@@ -66,6 +66,26 @@ namespace MariaMorales.Controllers
             return View();
         }
 
+        public IActionResult EditarCliente(int id)
+        {
+            Cliente modelo = _context.Cliente.Where(c => c.ClienteId == id).FirstOrDefault();
+            return View("EditarCliente", modelo);
+        }
+        public IActionResult EditarvalorCliente(Cliente cliente)
+        {
+            //recupero el valor actual en la base de datos
+            Cliente clienteActual= _context.Cliente.Where(a => a.ClienteId == cliente.ClienteId).FirstOrDefault();
+
+            clienteActual.Nombre = cliente.Nombre;
+            clienteActual.Apellido = cliente.Apellido;
+            clienteActual.Telefono = cliente.Telefono;
+            clienteActual.Direccion = cliente.Direccion;
+            //persisto los datos den la base de datos
+            _context.SaveChanges();
+            List<Cliente> clientes = _context.Cliente.ToList();
+            return View("ListaCliente", clientes);
+        }
+
         public IActionResult CrearCliente(Cliente cliente)
         {
            // cliente.FechaCreacion = DateTime.Now;
@@ -79,8 +99,8 @@ namespace MariaMorales.Controllers
         public IActionResult ListaCliente()
         {
             List<Cliente> cliente = _context.Cliente.ToList();
-            // return View(cliente);
-            return RedirectToAction("ListaCliente");
+            return View(cliente);
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

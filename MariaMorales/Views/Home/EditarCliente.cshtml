@@ -1,0 +1,41 @@
+﻿@model MariaMorales.Models.Cliente
+<h1>Editar cliente</h1>
+  <form asp-action="EditarvalorCliente">
+
+
+            <div class="form-group">
+                
+                <input type="text" class=form-control name="Nombre" value="@Model.Nombre"/>
+                <input type="hidden" name="ClienteId" value="@Model.ClienteId"/>
+            </div>
+
+             <div class="form-group">
+                
+                <input type="text" class=form-control name="Apellido" value="@Model.Apellido"/>
+                <input type="hidden" name="ClienteId" value="@Model.ClienteId"/>
+            </div>
+           
+            <div class="form-group">
+                
+                <input type="text" class=form-control name="Telefono" value="@Model.Telefono"/>
+                <input type="hidden" name="ClienteId" value="@Model.ClienteId"/>
+            </div>
+
+            <div class="form-group">
+                
+                <input type="text" class=form-control name="Direccion" value="@Model.Direccion"/>
+                <input type="hidden" name="ClienteId" value="@Model.ClienteId"/>
+            </div>
+
+            <div class="form-group">
+                
+                <input type="text" class=form-control name="Cedula" value="@Model.Cedula"/>
+                <input type="hidden" name="ClienteId" value="@Model.ClienteId"/>
+            </div>
+           
+
+            <div class="form-group">
+                <input type="submit" value="Actualizar" class="btn btn-success" />
+            </div>
+
+        </form>
