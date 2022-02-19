@@ -68,12 +68,12 @@ namespace MariaMorales.Controllers
 
         public IActionResult CrearCliente(Cliente cliente)
         {
-            cliente.FechaCreacion = DateTime.Now;
-            cliente.Nombre = "probando";
+           // cliente.FechaCreacion = DateTime.Now;
+           // cliente.Nombre = "probando";
             _context.Cliente.Add(cliente);
             _context.SaveChanges();
             //  return View();
-            return RedirectToAction("cliente");
+            return RedirectToAction("ListaCliente");
             
         }
         public IActionResult ListaCliente()
