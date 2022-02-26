@@ -25,7 +25,7 @@ namespace MariaMorales.Models
         [Required(ErrorMessage = "El campo direccion es requerido")]
         public string Direccion { get; set; }
 
-        [Required(ErrorMessage = "El campo genero es requerido")]
+       // [Required(ErrorMessage = "El campo genero es requerido")]
         public int Genero { get; set; }
 
         [Required(ErrorMessage = "El campo cedula es requerido")]
