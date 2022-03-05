@@ -4,12 +4,12 @@
 
 //Definir el evento click para el boton guardar
 $("#btnGuardar").click(function () {
-    alert("Hola soy el evento click");
+  //  alert("Hola soy el evento click");
     //obtener el valor del input Nombre-cliente
     var nombrecliente = $(".Nombre").val();
     //obtener el valor del input Apellido-cliente
     var apellidocliente = $(".Apellido").val();
-    var telefono = $(".Telefono");
+    var telefono = $(".Telefono").val();
     var direccion = $(".Direccion").val();
     var cedula = $(".Cedula").val();
     // derjaer caer los valorees
@@ -21,7 +21,7 @@ $("#btnGuardar").click(function () {
         Swal.fire({
             icon: 'warning',
             title: 'Error',
-            text: 'Todos los campos son requeridos!',
+            text: 'Todos los campos son requeridos'
 
         });
 
@@ -53,14 +53,16 @@ $("#btnGuardar").click(function () {
         xhr.done(function (data) {
             if (data.success) {
                 Swal.fire(
-                    Swal.fire(
-                        'Good job',
-                        data.message,
-                        'success'
+                    'Good job',
+                    data.message,
+                    'success'
                     )
-                $(".Nombre-cliente").val("");
-                $(".Apellido-cliente").val("");
-            
+                $(".Nombre").val("");
+                $(".Apellido").val("");
+                $(".Telefono").val("");
+                $(".Direccion").val("");
+                $(".Cedula").val("");
+                console.log(data);
             }
 
            

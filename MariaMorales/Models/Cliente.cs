@@ -19,16 +19,16 @@ namespace MariaMorales.Models
         public string Apellido { get; set; }
 
        
-        [Required(ErrorMessage = "El campo telefono es requerido")]
+       // [Required(ErrorMessage = "El campo telefono es requerido")]
         public int Telefono { get; set; }
 
-        [Required(ErrorMessage = "El campo direccion es requerido")]
+      //  [Required(ErrorMessage = "El campo direccion es requerido")]
         public string Direccion { get; set; }
 
        // [Required(ErrorMessage = "El campo genero es requerido")]
         public int Genero { get; set; }
 
-        [Required(ErrorMessage = "El campo cedula es requerido")]
+      //  [Required(ErrorMessage = "El campo cedula es requerido")]
         public string Cedula { get; set; }
 
        

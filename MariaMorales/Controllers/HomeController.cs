@@ -89,21 +89,21 @@ namespace MariaMorales.Controllers
         public IActionResult CrearCliente(Cliente cliente)
         {
 
-            // cliente.FechaCreacion = DateTime.Now;
+            cliente.FechaCreacion = DateTime.Now;
             // cliente.Nombre = "probando";
 
             //aqui todo correcto
-           // _context.Cliente.Add(cliente);
-           // _context.SaveChanges();
+           _context.Cliente.Add(cliente);
+            _context.SaveChanges();
 
             //nuevo
 
-            return Json(new
-            {
-                success = false,
-                Message = "el nombre de la categoria esta vacio"
-                });
-        //  return View();
+          //  return Json(new
+         //   {
+           //     success = false,
+           //     Message = "el nombre de la categoria esta vacio"
+           //     });
+          return View();
         // return RedirectToAction("ListaCliente");
 
     }
