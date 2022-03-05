@@ -56,7 +56,14 @@ $("#btnGuardar").click(function () {
                     'Good job',
                     data.message,
                     'success'
-                    )
+                )
+
+                //luego de dos segundos redirecciona a la pagina de lista cliente
+                setTimeout(function () {
+                    location.href = "../Home/ListaCliente";
+
+                }, 2000)
+
                 $(".Nombre").val("");
                 $(".Apellido").val("");
                 $(".Telefono").val("");

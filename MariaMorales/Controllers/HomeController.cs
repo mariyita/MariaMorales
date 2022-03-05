@@ -98,15 +98,15 @@ namespace MariaMorales.Controllers
 
             //nuevo
 
-          //  return Json(new
-         //   {
-           //     success = false,
-           //     Message = "el nombre de la categoria esta vacio"
-           //     });
-          return View();
-        // return RedirectToAction("ListaCliente");
+            return Json(new
+            {
+                success = true,
+                Message = "cliente creado correctamente"
+            });
 
-    }
+            // return RedirectToAction("ListaCliente");
+
+        }
         public IActionResult ListaCliente()
         {
             List<Cliente> cliente = _context.Cliente.ToList();
@@ -130,6 +130,19 @@ namespace MariaMorales.Controllers
             List<Cliente> clientes = _context.Cliente.ToList();
             return View("ListaCliente", clientes);
             
+        }
+
+        public IActionResult ObtenerDireccion(int id)
+        {
+         // string direccion= _context.Cliente.Where(a => a.Id == id).FirstOrDefault().Direccion;
+            string direccion = "la categoria no contiene descripcion";
+            Cliente cliente = _context.Cliente.Where(a => a.ClienteId == id).FirstOrDefault();
+            if(cliente != null && !string.IsNullOrEmpty(cliente.Direccion))
+            {
+
+                direccion = cliente.Direccion;
+            }
+            return Json(new { direccion });
         }
 
 

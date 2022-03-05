@@ -2,10 +2,14 @@
 
 @model List<MariaMorales.Models.Cliente>
 <div>
-    <table class="table table-hover">
+    <table class="table table-hover" id="tabla-categorias">
         <thead>
             <tr>
-                <th>Clientes</th>
+                <th>Nombre</th>
+                 <th>Apellido</th>
+                  <th>Telefono</th>
+                 <th>Direccion</th>
+                 <th>Cedula</th>
                  <th>Acciones</th>
             </tr>
           
@@ -21,6 +25,7 @@
                     <td>@cliente.Direccion</td>
                      <td>@cliente.Cedula</td>
                     <td>
+                      <a data-id=@cliente.ClienteId class="btn btn-success ver-direccion" href="javascript:void(0);">ver descripcion</a>
                       <a class="btn btn-info" href="@Url.Action("EditarCliente",new {id = cliente.ClienteId})">Editar</a>
                   
                     
@@ -37,3 +42,53 @@
 <div>
     <a class="btn alert-success" asp-action="Cliente">agregar nueva</a>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <spam class="valor-descripcion"></spam>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts{
+    <script>
+          $('#tabla-categorias').DataTable();
+        $(".ver-direccion").click(function(){
+
+            var id = $(this).attr("data-id");
+
+            var xhr = $.ajax({
+                url: "ObtenerDireccion",
+                type: "POST",
+                data: {
+                    //parametros
+                    "id": id
+                }
+            });
+            xhr.done(function (data){ 
+            
+                $(".valor-descripcion").text(data.direccion);
+                $("#exampleModal").modal("show");
+
+            });
+            xhr.fail(function () { });
+        //    alert("me han dado click");
+        //hacer la peticion para rescatar cedula de la categoria
+
+            
+        });
+    </script>
+}

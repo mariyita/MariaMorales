@@ -15,7 +15,7 @@ namespace MariaMorales.Models
         public string Nombre { get; set; }
 
         [StringLength(100)]
-        [Required(ErrorMessage = "El campo apellido es requerido")]
+       [Required(ErrorMessage = "El campo apellido es requerido")]
         public string Apellido { get; set; }
 
        
