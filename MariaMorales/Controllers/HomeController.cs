@@ -60,7 +60,7 @@ namespace MariaMorales.Controllers
         {
             return View();
         }
-
+        //testito
         public IActionResult Cliente()
         {
             return View();
