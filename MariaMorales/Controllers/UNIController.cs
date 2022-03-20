@@ -8,7 +8,7 @@ namespace MariaMorales.Controllers
         {
             return View();
         }
-
+        //hik
         public IActionResult Test()
         {
             return View("Posgrado");

@@ -45,7 +45,7 @@ namespace MariaMorales.Controllers
             });
             return View(pacientes);
         }
-
+        
         public IActionResult Privacy()
         {
             return View();
